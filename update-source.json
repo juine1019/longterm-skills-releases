@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "repository": "juine1019/longterm-skills-releases",
+  "channel": "stable",
+  "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAJkbZ+FnGuS6WB2bLRq/B3BrlqAPR+5wjKw7Pmtl/RIg=\n-----END PUBLIC KEY-----\n",
+  "minimumSequence": 0
+}

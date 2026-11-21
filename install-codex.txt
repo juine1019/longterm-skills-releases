@@ -1,0 +1,27 @@
+이 PC에 롱텀 스킬 1.1.2를 공개 GitHub ZIP으로 설치해 주세요. 자체 EXE 설치 도우미는 사용하지 않습니다. 공개 자료만 사용하므로 GitHub 로그인이나 비공개 개발 저장소 접근은 필요하지 않습니다. 이번 지시는 로컬 도구 준비·스킬 설치·설치 확인에 대한 지시이며, 실제 기관 업무 실행은 포함하지 않습니다.
+
+공식 공개 경로:
+https://github.com/juine1019/longterm-skills-releases/releases/tag/v1.1.2
+ZIP:
+https://github.com/juine1019/longterm-skills-releases/releases/download/v1.1.2/longterm-skills-1.1.2.zip
+ZIP SHA-256:
+30fde81c825422d663e543cb45b870f7be2801ae7b38d5581ea5efcaf6f5ad76
+manifest SHA-256:
+704176ecfdc80914d58ec7ef1ef896e21c5efaab57f45d002f40a1e00e83300d
+공개 업데이트 설정:
+https://github.com/juine1019/longterm-skills-releases/releases/download/v1.1.2/update-source.json
+위 설정 파일 SHA-256:
+5570fa44f5660626c21bef6fc0aab0a5323e9892a8984a994bff65af6c69143b
+
+순서:
+1. 기존 롱텀 폴더·전역 스킬·자체 스킬·기관 설정·업무자료를 먼저 읽기로 확인해 보존합니다. 강제 reset/clean/stash·기존 폴더 삭제·통째 덮어쓰기·다른 PC 자료 복사는 하지 않습니다.
+2. Node 18 이상, Python 3.10 이상(python-docx·PyMuPDF), Windows PowerShell 5.1, Aside CLI를 확인합니다. Codex·Aside 앱/CLI와 사이트 로그인은 사용자가 직접 준비합니다. 정상 도구는 업그레이드하지 말고, 누락 도구만 공식 경로로 준비합니다. 새 도구 설치 뒤 Codex 재시작이 필요하면 이유와 이어갈 문구를 남깁니다. 기관 보안 정책·관리자 승인을 우회하지 않습니다.
+3. ZIP과 설정 파일을 공개 경로에서 내려받아 위 별도 SHA-256과 먼저 대조합니다. ZIP은 새 해제 폴더에서 경로 이탈·중복·링크를 검사하고 풉니다. manifest SHA-256 및 manifest에 선언된 파일 집합/개별 해시를 확인한 뒤 내부 코드를 실행합니다. 해시는 받은 파일에 맞춰 고쳐 쓰지 않습니다.
+4. 설치는 로컬 NTFS의 짧은 명시적 업무 폴더에 합니다(약 170자 이하, 포함된 파일 전체 경로도 250자 이하). 기존 활성 버전·신뢰 설정·공용 작업 점유(state/runtime.lock, .install.lock, update-pending.json)와 모든 기관의 worker-notes/plan-sources/locks/*.lock을 확인합니다. 진행 중/미확인 점유는 지우지 않습니다.
+5. 이미 같은 버전/같은 manifest이면 재설치하지 않고 control.cjs·스킬 진입·필수 파일 존재와 list-skills로 확인합니다. 더 새 버전이면 다운그레이드하지 않습니다. 미등록 베타·자체 수정·전역 이름 충돌 또는 키/주소 불일치가 있으면 기존 상태를 보존하고 이전 방안을 제시합니다. 기존 사용자 스킬 경로 검사를 가짜 USERPROFILE로 우회하지 않습니다.
+6. 새 빈 업무 폴더에는 공개 ZIP의 기존 설치기를 사용합니다:
+node <해제폴더>/runtime/installer.cjs install --workspace <업무폴더> --package <해제폴더> --manifest-sha256 704176ecfdc80914d58ec7ef1ef896e21c5efaab57f45d002f40a1e00e83300d
+7. 공개 update-source.json을 runtime/update-trust.cjs로 검증하고 새 업무 폴더에 고정합니다. 기존 설정이 있으면 주소·공개키·채널을 대조해 일치하는 경우 기존 바이트/더 높은 minimumSequence를 보존합니다. 다르면 덮어쓰지 않습니다. stable feed는 아직 미발행이므로 업데이트 적용은 실행하지 않습니다.
+8. 로컬 menu/list-skills로 12스킬·자체 스킬·경로를 확인합니다. 기관 설정값은 실제 근거로 채우되 정책 채택과 로그인은 사용자 확인으로 진행합니다. 기관20A·종사자20L·같은 기관 업무데스크를 구분하고 필요한 Aside 탭만 지정합니다. 입력 중인 화면을 초기화하지 않습니다.
+
+완료 보고에는 설치 폴더·버전·필수 도구·스킬 수·자체 수정 보존·미확인 항목을 적어 주세요. 실제 업무 체크·승인·조회 수집·게시·저장·전송·통보는 하지 말고, 사용자가 다음 업무를 지시할 때 시작합니다. 이 버전은 설치 확인용 공개 배포이며, 이 PC의 실제 업무까지 검증됐다고 보고하지 마세요.

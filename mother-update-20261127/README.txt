@@ -35,3 +35,6 @@ P3: 기본프린터 조회로 인한 연결 대기 문제는 환경 문제로 �
 
 
 직원변경 모니터링 후속 인계: mother-update-20261127/worker-change-monitoring/MOTHER-INTEGRATION.txt와 양쪽 HANDOFF의 직원변경 추가 절을 읽는다. 소스/설치기/가상시험을 동봉했다. U031의 미완성 기능을 중앙원본에서 보완할 후보이며 이번 푸시는 정식 서명 업데이트 발행이 아니다.
+
+
+추가 최신 후보: repeat-evaluation-20261127/MOTHER-INTEGRATION.txt. 반복평가 기간 검사·지연 팝업·119합성검사·현장6-2완료 근거/한계를 포함한다. 오늘 종료 이후 업무를 재실행하지 않는다. 전달ZIP은 mother-update-20261127-r2.zip을 사용한다.

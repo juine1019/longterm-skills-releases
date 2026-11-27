@@ -1,0 +1,10 @@
+{
+  "version": "1.1.2-test-fix-20261126",
+  "manifestFingerprint": "be45b10e9575a547c6eb7a9a5f68b5cc14fc5037ce1a8f77662420558e7eeb52",
+  "changedFiles": [
+    "runtime/evaluation/core.cjs",
+    "runtime/evaluation/native-open.cjs",
+    "assets/runtime-guide.md",
+    "skills/longterm-result-evaluation/references/desk-workflow.md"
+  ]
+}

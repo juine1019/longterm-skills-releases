@@ -1,0 +1,42 @@
+{
+  "stage": {
+    "ok": true,
+    "counts": {
+      "skills": 12,
+      "javascript": 256,
+      "powershell": 69,
+      "python": 8
+    },
+    "errors": [],
+    "liveLoginChecked": false,
+    "siteWrites": 0
+  },
+  "changed": [
+    {
+      "path": "runtime/evaluation/core.cjs",
+      "before": "917bb1101c935802174c4dd6900aed1ee9816555ef0ad0d5215d50b176e81b17",
+      "after": "9253329d0ff0fa6011b9433939827cef767b9cb59854411c20d52ab6e47d72a1"
+    },
+    {
+      "path": "runtime/evaluation/native-open.cjs",
+      "before": "38762f28e65b824de10154022fb0c31483ab105c0a42877a9bb337acb96fe939",
+      "after": "efb4bc3b6a0ac58354810fa8570551023aa38af8fcb5a545b94db7614b57a03f"
+    },
+    {
+      "path": "assets/runtime-guide.md",
+      "before": "f17009d4c84b934cb3f3a66a03bd07ba58808c30d8cd5940435c186187037cbf",
+      "after": "3c20e3955e8e7412d44b0de644829599349a1a46691be6663fe037352c1f9f1d"
+    },
+    {
+      "path": "skills/longterm-result-evaluation/references/desk-workflow.md",
+      "before": "b7a4fedf9a7d372c6e24a57444e83f88aa3f30c40295a0a982bfaef31cf7c375",
+      "after": "8a20a24a0532b7bdf327b0e087c73113529fba7494c56919c6a6e9c85b7d6964"
+    }
+  ],
+  "fingerprint": "3a732ea95c7cb613360dce47ab1317113e14a96f26b9faaa42971051d1facb46",
+  "tests": {
+    "passed": 119,
+    "failed": 0
+  },
+  "officialReleasePublished": false
+}

@@ -1,0 +1,24 @@
+마더PC 반복 결과평가 통합 후보 — 2026-11-27
+
+범위
+노트북 로컬 테스트 버전1.1.2-test-fix-20261127의 선별 수정4파일과 재현 가능한 합성검사119개다. 기존 v4·계획서 후보·직원변경 preview를 보존한다. 서버 코드는 포함하지 않는다.
+
+문제와 변경
+1. 같은 계획의 이전 평가와 서비스기간이 겹치거나 시작/종료일이 다르면 잘못 차단했다. 사용자가 반복 평가가 가능하며 승인한 전체 계획기간을 사용한다고 확인했다. core.cjs에서 기간 겹침 단독 차단만 제거했다. 기존 저장일·기간 형식/순서, 동일 평가일 중복, 다음 차수, unknown/기존 저장 시도 보호를 유지한다.
+2. 계획 팝업 wrapper가 먼저 생기고 실제 업무 form이 나중에 생길 때 처음 wrapper를 계속 참조해 실제1행을 빈 목록으로 오판했다. native-open.cjs는 대기마다 실제 dataset과 선택 함수를 가진 form을 다시 확인한다. 실제 빈 목록과 아직 미준비를 구분하고 확인 못한 팝업은 불명 상태를 보존한다.
+3. 업무 진입 안내와 반복 평가 기준을 두 참조문서에 반영했다.
+
+증거와 한계
+checks/runtime/evaluation의7개 test 파일로119검사 통과. preflight.json에 전체stage(스킬12/JS256/PS69/Python8)·변경 전후 해시·활성manifest fingerprint를 보존한다. 노트북 설치 후 활성파일해시불일치0·상태연결28·설치보존검사 통과. 실제6-2 신규2차 정상저장1회·독립서버대조차이0·UPDATE재열기·업무데스크등록완료/실제차수 확인, 기존1차 보존. 개인정보와 실제 영수증은 로컬 기관폴더에만 보존한다.
+사용자가 내부 업무 창을 닫은 뒤 정상 메뉴/대상/계획으로 스스로 다시 열기 성공. 전체 브라우저 종료 후 기동/로그인 자동화 검증은 아니다. 새 popup 코드의 전체 실제 재진입은 아직 추가 검증 필요하다.
+
+재현
+이 폴더에서 node --test checks/runtime/evaluation/runner.test.cjs checks/runtime/evaluation/v2-form.test.cjs checks/runtime/evaluation/open.test.cjs checks/runtime/evaluation/desk-register.test.cjs checks/runtime/evaluation/desk-publish.test.cjs checks/runtime/evaluation/desk-publish-run.test.cjs checks/runtime/evaluation/desk-transport.test.cjs
+검사는 합성 fixture만 사용하고 사이트를 저장하지 않는다. checks는 재현용 runtime 스냅샷이며 공식 설치 패키지가 아니다. candidate의4파일을 실제 마더 원본과 의미 단위로 비교하고 일괄 덮어쓰지 않는다.
+
+남은 공통 과제
+정확한 평가 화면 준비 전에 capture하는 시작경로, PID 재사용 시 process identity 검사, Aside 계정+프로필 명시, 대규모state 설치보존검사 성능, 선택 Python/docx/pymupdf 사전진단을 후속 수정한다. 기존 공통 U번호가 겹칠 수 있으므로 날짜/항목 제목을 함께 참조한다.
+
+다음 단계
+실제 마더 개발 원본/브랜치/미커밋 변경 확인→후보 의미 병합→119합성검사와 기존 회귀→신규설치/업데이트/복귀·시험PC/실제팝업 검사→중앙 서명 업데이트 발행. 배포PC는 공용 서버/DB/서명키를 수정하지 않는다.
+이번 배포는 사용자가 요청한 마더 전달용 prerelease이며 정식 signed/stable 설치 업데이트나 다른PC 자동설치가 아니다. 마더 원본 병합/서버변경/정식서명발행은 미실시다. 완료한 실제 업무는 재실행하지 않는다.

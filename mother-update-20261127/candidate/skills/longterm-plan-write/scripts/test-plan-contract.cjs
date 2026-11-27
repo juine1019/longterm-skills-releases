@@ -1,0 +1,16 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
+const source=fs.readFileSync(path.join(__dirname,'lt-plan-register.js'),'utf8');
+const block=source.split('// CONTRACT_SELECTION_BEGIN')[1].split('// CONTRACT_SELECTION_END')[0];
+const choose=vm.runInNewContext('('+block.trim()+')');
+const spec={name:'Example',ltcMgmtNo:'L0000000000',planNo:{ltcMgmtNoSeq:'104'},periodBasis:{contractStart:'2026-12-06',contractEnd:'2030-12-05'}};
+const common={fnm:spec.name,mgmt:spec.ltcMgmtNo,cls:'001'};
+const old={...common,i:0,no:'OLD',seq:'103',ctr:'OLD-C',ctrFr:'20241206',ctrTo:'20261205'};
+const renewal={...common,i:1,no:'',seq:'104',ctr:'NEW-C',ctrFr:'20261206',ctrTo:'20301205'};
+assert.equal(choose([old,renewal],spec,'20261206','20271205').i,1);
+assert.equal(choose([old],spec,'20261206','20271205'),null);
+assert.equal(choose([renewal,{...renewal,i:2,ctr:'OTHER'}],spec,'20261206','20271205'),null);
+assert.equal(choose([{...renewal,mgmt:'OTHER'}],spec,'20261206','20271205'),null);
+assert.equal(choose([{...renewal,ctrTo:'20270101'}],spec,'20261206','20271205'),null);
+assert.equal(choose([{...renewal,ctr:''}],spec,'20261206','20271205'),null);
+console.log('6 contract selection checks passed');

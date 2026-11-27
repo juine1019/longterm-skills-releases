@@ -1,0 +1,14 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
+const p=require('node:path').join(__dirname,'lt-plan-register.js');
+const src=fs.readFileSync(p,'utf8').split('// ADDITIONAL_PLAN_BEGIN')[1].split('// ADDITIONAL_PLAN_END')[0];
+const box={};vm.runInNewContext(src+';this.check=additionalPlanProblem',box);
+const rows=[{no:'FAKE-OLD-1'},{no:'FAKE-OLD-2'}];
+const intent={type:'additional',requestId:'742ffbca-9a30-4f2a-9e61-333211aabbcc',preservePlanNos:['FAKE-OLD-2','FAKE-OLD-1'],userInstruction:'기존 계획서는 그대로 두고 새로 작성',requestedAt:'2026-11-27T11:00:00+09:00'};
+assert.equal(box.check([],undefined),null);
+assert.ok(box.check(rows,undefined));
+assert.equal(box.check(rows,intent),null);
+assert.ok(box.check([...rows,{no:'NEW-UNEXPECTED'}],intent));
+assert.ok(box.check(rows,{...intent,preservePlanNos:['FAKE-OLD-1']}));
+assert.ok(box.check(rows,{...intent,requestId:'malformed'}));
+assert.ok(box.check(rows,{...intent,userInstruction:''}));
+console.log('Additional-plan registration: 7 cases passed');

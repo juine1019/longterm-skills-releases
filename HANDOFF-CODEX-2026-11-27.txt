@@ -41,3 +41,42 @@ P3: 기본프린터 조회로 인한 연결 대기 문제는 환경 문제로 �
 누적 세부: mother-update-20261127/MOTHER-PC-UPDATE-ITEMS-2026-11-27.txt
 패키지: mother-update-20261127.zip 및 .sha256.txt
 GitHub: https://github.com/juine1019/longterm-skills-releases/tree/handoff/2026-11-27-mother-update
+
+
+===== 직원변경 모니터링 추가 인계 — 2026-11-27 오늘 작업 종료 =====
+
+사용자 요청: 직원변경 모니터링 스킬을 마더PC 업데이트본에 포함할 수 있도록 인계하고 커밋·푸시한다. 오늘 업무는 종료하며 다음 실제 업무는 새 지시 후 진행한다.
+
+공개 저장소: https://github.com/juine1019/longterm-skills-releases
+인계 브랜치: handoff/2026-11-27-mother-update
+이 브랜치의 두 날짜별 HANDOFF와 mother-update-20261127/worker-change-monitoring/MOTHER-INTEGRATION.txt를 읽는다. 공개 배포 저장소는 실제 마더 개발 원본이 아니다.
+
+완료 사실
+원본 랩탑의 스킬을 확인하고 기관 원천/결과/설정/인증 없이 공개 전달본을 준비했다. 별도 prerelease worker-change-monitoring-v0.1.0-preview.1을 사용자 명시 지시로 공개했다. 기존 공식1.1.2 자산/stable feed/서명 신뢰설정은 변경하지 않았다.
+공개 릴리스: https://github.com/juine1019/longterm-skills-releases/releases/tag/worker-change-monitoring-v0.1.0-preview.1
+업로드 ZIP: care-worker-change-monitoring-0.1.0-preview.1.zip / 18561 bytes
+SHA256: 56a7fe7b7c883b33e63e8cef3e55cd6f34fb20ba988e50ffe78b7ddc14e88fa0
+GitHub 자동 Source code ZIP에는 스킬이 없고 위 업로드 자산을 사용한다.
+
+동봉 위치
+mother-update-20261127/worker-change-monitoring/package/ 안에 스킬 지침·예시·생성기·가상시험·install.ps1·requirements·manifest·설치안내·제한사항이 있다. 같은 폴더 상위에 공개 ZIP/체크섬/대상PC 설치문구/릴리스설명/설치보존 시험을 넣었다.
+공개 전달본에는 작업공간 경로 안내 일반화, 구현 제한 명시, 기관외 출력 차단, Python -O/-OO 차단을 반영했다. 원본 사용자 스킬 폴더는 변경하지 않았다. 설치기는 기존 수정본을 덮어쓰지 않는다.
+
+검증과 한계
+실행한 가상시험: 월 경계·임시대체·복귀·초안표시·기존출력보호·기관외출력차단·최적화차단·예정값재현·손상원천차단 통과. 별도 시험 폴더에서 내부해시·신규설치·재설치·기존사용자수정본보존 통과. skill-creator 형식검사 통과.
+공개 후 로그인 없는 HTTP 다운로드의 ZIP SHA256과 내부 파일 해시가 일치했고 설치문구 HTTP200을 확인했다. Windows 한글 subprocess는 -X utf8을 사용했다.
+대상PC 실제 설치/새채팅 스킬인식/렌더 도구/한글 DOCX-PDF-PNG 시각검증/실제 기관 실행은 미검증이다. 본 가상시험을 이 범위의 완료 증거로 확대하지 않는다.
+
+현재 구현과 사용자 기대의 차이
+현재 CLI는 workspace/output만 받고 보관된 전체 월의 상담 미확인 예시 초안을 생성한다. 기간·수급자 선택, 기존 manifest 자동 재사용, 확인된 상담내용 자동 반영은 미구현이다. 직원명 기반이며 공동제공/시간중복은 events에 경고로 남으므로 확정 변경과 구분해야 한다.
+사용자는 '사전검증용 전달본'이라는 설명을 질문했고, 설치 패키지 준비와 업무 기능 완성을 구분해 설명했다. 이 버전을 다른PC에서 바로 쓰는 완성본 또는 마더 반영 완료로 표현하지 않는다.
+
+마더의 다음 순서
+1. 실제 개발 원본/브랜치/미커밋 변경을 확인하고 기존 누적 U001~U030을 보존한다. 직원변경은 U027과 U031을 함께 읽는다.
+2. 아래 MOTHER-INTEGRATION.txt의 범위 선택/원천검증/재사용·버전관리/실제상담 반영/검토후보 분리/의존성 진단을 구현하고 가상 회귀검사를 추가한다. 전달본 파일을 공식 runtime에 일괄 덮어쓰지 않는다.
+3. 공식 설치·업데이트 스킬 탐색 경로에 통합하고 신규설치/기존설치/사용자수정 충돌/복귀/UTF-8/한글문서 렌더를 시험PC에서 확인한다.
+4. 마더 원본 병합·시험·정식 서명 발행·PC확대 결과를 구분해 기록한다. 이번 요청은 검토 인계 커밋·푸시이며 새 정식 업데이트 발행 지시로 확대하지 않는다.
+
+실행 경계
+마더 개발 원본 통합/정식 서명 업데이트/다른PC 배포/서버변경은 미실시다. 이번 종료로 실제 업무 수집·문서작성·사이트 저장·게시·통보·삭제·과거 테스트 재생성을 하지 않는다. 기관 원문/실제 식별값/프로필/인증/발행 개인키는 공개 인계에 포함하지 않는다.
+최종 커밋은 이 브랜치의 최신 로그로 확인하고 원격 HEAD와 대조한다. 동일 날짜의 기존 인계 내용은 위에 보존했다.

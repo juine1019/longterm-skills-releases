@@ -3,3 +3,6 @@ HANDOFF-CODEX-2026-11-27.txt
 HANDOFF-CLAUDE-CODE-2026-11-27.txt
 mother-update-20261127/README.txt
 이전 인계와 ZIP은 이력으로 보존. 최신 검토용이며 정식 업데이트 아님.
+
+
+직원변경 모니터링 후속 인계: mother-update-20261127/worker-change-monitoring/MOTHER-INTEGRATION.txt와 양쪽 HANDOFF의 직원변경 추가 절을 읽는다. 소스/설치기/가상시험을 동봉했다. U031의 미완성 기능을 중앙원본에서 보완할 후보이며 이번 푸시는 정식 서명 업데이트 발행이 아니다.

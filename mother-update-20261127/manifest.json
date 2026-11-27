@@ -194,13 +194,13 @@
     },
     {
       "path": "HANDOFF-CLAUDE-CODE-2026-11-27.txt",
-      "sha256": "3a80f3fd63bd521fe296d16b6a8ddc7205ca67ce7a376817ee88cd2870d32674",
-      "bytes": 5864
+      "sha256": "ffc9cea573192857f34287e35137fb41278b9224ae7551a3f5931824e3d8a960",
+      "bytes": 10567
     },
     {
       "path": "HANDOFF-CODEX-2026-11-27.txt",
-      "sha256": "d434c90b4fa843022a17e71938751b7885bc81ed841e1a4bb3133872c095eacc",
-      "bytes": 5843
+      "sha256": "9ba70eb79bfaa5e10c22a133c0d2b9090cbb38f6ced0156848262703be987bd0",
+      "bytes": 10546
     },
     {
       "path": "MOTHER-PC-CLIENT-ONLY-2026-11-26.zip",
@@ -209,18 +209,110 @@
     },
     {
       "path": "MOTHER-PC-UPDATE-ITEMS-2026-11-27.txt",
-      "sha256": "03420d9fd4bfe23e5aae99cd6b0588a1da14dca6feddf1cc8433a9aa3bbc6ab3",
-      "bytes": 39657
+      "sha256": "08e814b3c6d2ef1b45c2dc50d3bdfb767b949709bb46ec2de3f88405c370ac21",
+      "bytes": 41177
     },
     {
       "path": "README.txt",
-      "sha256": "811df31b3e057d38338af8788bd68fcdce3fcca272687129b8287429ee755040",
-      "bytes": 5158
+      "sha256": "4331818e0dbcf09e17ff64e6ed0f05dbc52bce35863b9f3e630041ca90091182",
+      "bytes": 5516
     },
     {
       "path": "validation.txt",
-      "sha256": "d29eab4c56fadec295cf579ad90dbf6beb8f7b05f19b9415ad4535b1e69aa3b2",
-      "bytes": 909
+      "sha256": "520556c754e34aaba2fc6b5caddf3efe6ca01cdd84e17810f308fa020a12e3e0",
+      "bytes": 1435
+    },
+    {
+      "path": "worker-change-monitoring/care-worker-change-monitoring-0.1.0-preview.1.zip",
+      "sha256": "56a7fe7b7c883b33e63e8cef3e55cd6f34fb20ba988e50ffe78b7ddc14e88fa0",
+      "bytes": 18561
+    },
+    {
+      "path": "worker-change-monitoring/install-codex-worker-change.txt",
+      "sha256": "b2aac16ac5948d3fb871b924edb7f915a32c722d5cf88b8954078739bc0f780e",
+      "bytes": 2156
+    },
+    {
+      "path": "worker-change-monitoring/MOTHER-INTEGRATION.txt",
+      "sha256": "eb9f2e8b73276da1668fd80ad2da015febfd78244c0945748bfcdf37b0b75c29",
+      "bytes": 4039
+    },
+    {
+      "path": "worker-change-monitoring/package/care-worker-change-monitoring/INSTALL.md",
+      "sha256": "130975b80a8f6137bc14dcaf19c6bb0a670fc00115ce00cb211fb67ed475641b",
+      "bytes": 2057
+    },
+    {
+      "path": "worker-change-monitoring/package/care-worker-change-monitoring/LIMITATIONS.md",
+      "sha256": "562d365e8bcffaecf8dfce148d0d42455daca1b163d013d70befe1e6e69737d7",
+      "bytes": 1537
+    },
+    {
+      "path": "worker-change-monitoring/package/care-worker-change-monitoring/references/examples.md",
+      "sha256": "851b9a63afbd5294682885cc1ea2ad8cecbc3274d35196c3be7e7f71181069eb",
+      "bytes": 3929
+    },
+    {
+      "path": "worker-change-monitoring/package/care-worker-change-monitoring/scripts/create_documents.py",
+      "sha256": "e627794f11f222ae4bca790a6919eab03976c54f0a9935c43c2afceb3c43703f",
+      "bytes": 10133
+    },
+    {
+      "path": "worker-change-monitoring/package/care-worker-change-monitoring/scripts/self_test.py",
+      "sha256": "b7ec3c73ff5482cdcaaac534e2ff59d5cd5e067f6e8a1b8f95e58201828b7f2d",
+      "bytes": 4455
+    },
+    {
+      "path": "worker-change-monitoring/package/care-worker-change-monitoring/SKILL.md",
+      "sha256": "5fbc11ef405e701b4e184623f73ae5dd1b10b22f8d7562f3463b7d1a1b836095",
+      "bytes": 9557
+    },
+    {
+      "path": "worker-change-monitoring/package/INSTALL.md",
+      "sha256": "130975b80a8f6137bc14dcaf19c6bb0a670fc00115ce00cb211fb67ed475641b",
+      "bytes": 2057
+    },
+    {
+      "path": "worker-change-monitoring/package/install.ps1",
+      "sha256": "d0aed1bc0b6bd3e5009dd54a97cce45c1d62ffcb0619a439def3a04cc537b059",
+      "bytes": 2546
+    },
+    {
+      "path": "worker-change-monitoring/package/LIMITATIONS.md",
+      "sha256": "562d365e8bcffaecf8dfce148d0d42455daca1b163d013d70befe1e6e69737d7",
+      "bytes": 1537
+    },
+    {
+      "path": "worker-change-monitoring/package/package-manifest.json",
+      "sha256": "78055a3f4a865833874fd07c8d729c052460245126ef8407a0afd5216ff207dc",
+      "bytes": 1634
+    },
+    {
+      "path": "worker-change-monitoring/package/requirements.txt",
+      "sha256": "4c08e5babd8a01c514ba2d3ecdc4c38f96733cd52331f558efbebdab987c3942",
+      "bytes": 20
+    },
+    {
+      "path": "worker-change-monitoring/RELEASE-NOTES.md",
+      "sha256": "9f2d202ce5c77554339871c856f828ceb6116c7ee2ad56d65a5765e99178841e",
+      "bytes": 2233
+    },
+    {
+      "path": "worker-change-monitoring/SHA256SUMS-worker-change.txt",
+      "sha256": "b83396a969a17489e846c53009ca85643148bc2996512e9c02e7fb20421003f4",
+      "bytes": 117
+    },
+    {
+      "path": "worker-change-monitoring/test_install.ps1",
+      "sha256": "2f4960175d69c1992bb12bda13db88c9dfeddf46e2e85d728fde070e5aa8e6eb",
+      "bytes": 826
     }
-  ]
+  ],
+  "workerChangePreview": {
+    "version": "0.1.0-preview.1",
+    "sourceIncluded": true,
+    "motherIntegrated": false,
+    "targetPCVerified": false,
+    "visualRenderVerified": false
+  }
 }

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "name": "care-worker-change-monitoring",
+  "version": "0.1.0-preview.1",
+  "files": [
+    {
+      "path": "care-worker-change-monitoring/INSTALL.md",
+      "sha256": "130975b80a8f6137bc14dcaf19c6bb0a670fc00115ce00cb211fb67ed475641b"
+    },
+    {
+      "path": "care-worker-change-monitoring/LIMITATIONS.md",
+      "sha256": "562d365e8bcffaecf8dfce148d0d42455daca1b163d013d70befe1e6e69737d7"
+    },
+    {
+      "path": "care-worker-change-monitoring/references/examples.md",
+      "sha256": "851b9a63afbd5294682885cc1ea2ad8cecbc3274d35196c3be7e7f71181069eb"
+    },
+    {
+      "path": "care-worker-change-monitoring/scripts/create_documents.py",
+      "sha256": "e627794f11f222ae4bca790a6919eab03976c54f0a9935c43c2afceb3c43703f"
+    },
+    {
+      "path": "care-worker-change-monitoring/scripts/self_test.py",
+      "sha256": "b7ec3c73ff5482cdcaaac534e2ff59d5cd5e067f6e8a1b8f95e58201828b7f2d"
+    },
+    {
+      "path": "care-worker-change-monitoring/SKILL.md",
+      "sha256": "5fbc11ef405e701b4e184623f73ae5dd1b10b22f8d7562f3463b7d1a1b836095"
+    },
+    {
+      "path": "INSTALL.md",
+      "sha256": "130975b80a8f6137bc14dcaf19c6bb0a670fc00115ce00cb211fb67ed475641b"
+    },
+    {
+      "path": "install.ps1",
+      "sha256": "d0aed1bc0b6bd3e5009dd54a97cce45c1d62ffcb0619a439def3a04cc537b059"
+    },
+    {
+      "path": "LIMITATIONS.md",
+      "sha256": "562d365e8bcffaecf8dfce148d0d42455daca1b163d013d70befe1e6e69737d7"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "4c08e5babd8a01c514ba2d3ecdc4c38f96733cd52331f558efbebdab987c3942"
+    }
+  ]
+}

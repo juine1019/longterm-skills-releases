@@ -1,0 +1,13 @@
+이 PC에 ‘급여제공직원 변경 모니터링’ 스킬을 아래 공개 GitHub ZIP으로 설치해 줘. 파일 첨부나 GitHub 로그인은 필요하지 않아.
+
+배포 페이지: https://github.com/juine1019/longterm-skills-releases/releases/tag/worker-change-monitoring-v0.1.0-preview.1
+ZIP: https://github.com/juine1019/longterm-skills-releases/releases/download/worker-change-monitoring-v0.1.0-preview.1/care-worker-change-monitoring-0.1.0-preview.1.zip
+ZIP SHA256: 56a7fe7b7c883b33e63e8cef3e55cd6f34fb20ba988e50ffe78b7ddc14e88fa0
+
+새 임시 폴더에 ZIP을 내려받고 위 SHA256을 대조한 후 압축을 풀어 줘. GitHub가 자동 생성하는 Source code ZIP 대신 위 이름의 업로드 자산을 사용해 줘.
+INSTALL.md, LIMITATIONS.md, install.ps1, package-manifest.json을 읽고 내부 파일 해시를 검사해 줘.
+현재 PC의 지침·롱텀 설치 위치·활성 버전·스킬 설치 위치와 Python 환경을 확인한 뒤 install.ps1로 별도 스킬을 설치해 줘. 기존 동명 스킬이 다르면 덮어쓰지 말고 보존 후 차이를 알려줘. 서명된 롱텀 업데이트나 공식 릴리스 파일은 수정하지 마.
+Python 3.10 이상과 requirements.txt 의존성을 준비하고 제공된 scripts/self_test.py로 가상자료 시험을 실행해 줘. 가상자료만 이용해 이 PC의 한글 DOCX→PDF·페이지 PNG 변환도 확인해 줘. 변환 도구가 없으면 필요한 로컬 환경을 준비하되 시스템 보안·프린터 설정을 임의 변경하지 마.
+이 패키지는 0.1.0-preview.1 사전검증용 전달본이며 기간/대상 필터, 기존 문서 자동 재사용, 실제 상담내용 자동 반영은 아직 없음을 유지해 줘. 예정·예시를 실제 상담 기록으로 바꾸지 마.
+이번 지시는 설치·가상자료 검증까지야. 실제 기관 자료 수집이나 실제 문서 생성·사이트 저장·게시·통보·서버 변경은 하지 마. 설치 경로·검증 결과·남은 제한·스킬 호출 방법을 알려줘.
+질문이 필요하면 전체 질문 목록을 먼저 안내하고 한 번에 한 질문만 물어봐 줘.

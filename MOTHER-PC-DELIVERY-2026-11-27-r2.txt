@@ -1,0 +1,6 @@
+
+===== 마더PC 전달 게시 검증 완료 — 2026-11-27 =====
+수정 후보/인계 패키지 커밋 b44c866d9a5b706ec8d2895c582112e9ba907aa1을 handoff/2026-11-27-mother-update에 푸시했고 원격 HEAD와 일치함을 확인했다.
+prerelease mother-update-20261127-r2-preview.1 게시 완료. 업로드 자산 mother-update-20261127-r2.zip(563478bytes)과 체크섬을 로그인 없는 HTTPS로 다시 내려받았다. SHA256 d0b9af0dc42e6639d60b4eef92485f71cd1a8cac9a0c075962ea1302def70c58 일치, 내려받은 ZIP 내부 manifest162파일의 해시 불일치0. 전달폴더 재현119검사 모두 통과.
+릴리스 https://github.com/juine1019/longterm-skills-releases/releases/tag/mother-update-20261127-r2-preview.1
+이 절과 MOTHER-PC-DELIVERY-2026-11-27-r2.txt는 실제 게시 후 검증 영수증이다. ZIP에 든 인계문서는 게시 직전 스냅샷이고 브랜치 루트의 두 인계문서가 게시 검증을 포함한 최신본이다. 기존 직원변경/계획서/공통 후보 및 미완료 항목은 보존했다. 공개 원격 전달은 완료했으나 마더 개발원본 반영·정식 signed/stable 설치 업데이트·다른PC 설치·서버변경은 미실시다. 오늘 작업 종료. 완료한 사이트 업무를 재실행하지 않는다.

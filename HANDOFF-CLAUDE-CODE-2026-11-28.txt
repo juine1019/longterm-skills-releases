@@ -24,3 +24,8 @@ Claude Code 시작: CLAUDE.md, 현재 스킬 및 사용 가능한 CLI·실행기
 전달: https://github.com/juine1019/longterm-skills-releases/tree/handoff/2026-11-28-mother-update
 릴리스: https://github.com/juine1019/longterm-skills-releases/releases/tag/mother-update-20261128-preview.1
 실제 게시 및 해시는 GitHub와 전달 영수증으로 확인한다.
+
+===== 2026-11-28 마더PC 전달 검증 완료 =====
+사용자 지시에 따라 검토용 후보를 handoff/2026-11-28-mother-update 브랜치의 b321dee584f016d57cfaeac813d86bde065cc5d0 커밋으로 푸시하고 mother-update-20261128-preview.1 prerelease를 게시했다. 전달 ZIP SHA256 57b50a8d86adb30b1f8605c7e3cf74b466fc23f4327f32c92a74b0d14b195b19. GitHub에서 자산을 다시 내려받아 ZIP 해시와 내부 manifest 100파일의 해시 일치를 확인했다. 재현 검사 16건 통과, 식별·인증정보 유출 패턴 검사 통과.
+https://github.com/juine1019/longterm-skills-releases/releases/tag/mother-update-20261128-preview.1
+ZIP의 인계는 게시 직전 스냅샷이며 GitHub 브랜치 루트와 로컬의 두 인계가 이 게시 검증 사실을 포함한 최신본이다. 마더 개발 원본 병합, 정식 서명 업데이트, 타 PC 설치 및 서버 변경은 미실시다. 완료한 실제 업무를 재실행하지 않는다.

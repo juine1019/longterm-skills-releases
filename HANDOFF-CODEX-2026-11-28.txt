@@ -29,3 +29,7 @@ Codex 시작: AGENTS.md, 현재 스킬 및 실행기부터 확인한다.
 사용자 지시에 따라 검토용 후보를 handoff/2026-11-28-mother-update 브랜치의 b321dee584f016d57cfaeac813d86bde065cc5d0 커밋으로 푸시하고 mother-update-20261128-preview.1 prerelease를 게시했다. 전달 ZIP SHA256 57b50a8d86adb30b1f8605c7e3cf74b466fc23f4327f32c92a74b0d14b195b19. GitHub에서 자산을 다시 내려받아 ZIP 해시와 내부 manifest 100파일의 해시 일치를 확인했다. 재현 검사 16건 통과, 식별·인증정보 유출 패턴 검사 통과.
 https://github.com/juine1019/longterm-skills-releases/releases/tag/mother-update-20261128-preview.1
 ZIP의 인계는 게시 직전 스냅샷이며 GitHub 브랜치 루트와 로컬의 두 인계가 이 게시 검증 사실을 포함한 최신본이다. 마더 개발 원본 병합, 정식 서명 업데이트, 타 PC 설치 및 서버 변경은 미실시다. 완료한 실제 업무를 재실행하지 않는다.
+
+===== 2026-11-28 오늘 작업 종료 =====
+결과평가 2회차 저장 1회, 독립 검증 및 업무데스크 등록 확인을 완료했다. 완료 업무를 다시 저장·게시·통보하지 않는다. 노트북 시험 실행기 수정과 재현 검사 결과는 마더PC 전달본에 포함했다. 자동 세션 유지와 시간초과 팝업 자동 처리는 미완료다.
+마더PC 검토용 prerelease mother-update-20261128-preview.1 게시와 자산 재다운로드·무결성 검증을 완료했다. 브랜치 handoff/2026-11-28-mother-update의 최신 인계를 읽고 실제 개발 원본과 후보를 비교·병합·검증한다. 마더 원본 반영, 다른 PC 설치, 서버 변경 및 정식 서명 업데이트는 미실시다. 개인 원자료와 인증정보는 로컬에 보존한다.

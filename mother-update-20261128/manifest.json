@@ -1,0 +1,514 @@
+{
+  "purpose": "mother-PC integration review prerelease, not signed stable installer",
+  "date": "2026-11-28",
+  "tests": {
+    "evaluationOnly": 6,
+    "localNotes": 8,
+    "evaluationOpen": 2
+  },
+  "motherSourceMerged": false,
+  "officialRelease": false,
+  "serverChanged": false,
+  "files": [
+    {
+      "path": "candidate/assets/runtime-guide.md",
+      "sha256": "b80a41144a91a041f36bfaea1ffbc5ad523723751c30fac8daba4bb5ae4198e3",
+      "bytes": 13296
+    },
+    {
+      "path": "candidate/runtime/aside-cli.cjs",
+      "sha256": "a45fb7094835db7dbbcd32b91b5884647479e167d5632a36da8ee98f1b696908",
+      "bytes": 5755
+    },
+    {
+      "path": "candidate/runtime/evaluation/commands.cjs",
+      "sha256": "bb57aab67520e28ba6e5d714737af30a98940a6a27b251128c01331df281d7dc",
+      "bytes": 59515
+    },
+    {
+      "path": "candidate/runtime/evaluation/local-notes-prior.cjs",
+      "sha256": "ab69f9054710179bb3177b90bae1d37c0356ac135e18e906bc28d05d83692ce9",
+      "bytes": 2099
+    },
+    {
+      "path": "candidate/runtime/evaluation/lt-evidence-page.cjs",
+      "sha256": "c94e7f0806f14e59754db297dbc680f6f0dcb252264e0be41e5e7d5733eda48e",
+      "bytes": 14680
+    },
+    {
+      "path": "candidate/runtime/evaluation/native-evidence-adapter.cjs",
+      "sha256": "25fcac4a65fabc8ded4c3fe8b4bbe4f09ef88e47f289cceaa9c7d8ab7999ccd5",
+      "bytes": 10990
+    },
+    {
+      "path": "candidate/skills/longterm-past-schedule/references/lt-only-runtime.md",
+      "sha256": "9aec3516f1eed91440cf89227fd514370a155402f7f1dcfb43f9104a872a7706",
+      "bytes": 7388
+    },
+    {
+      "path": "candidate/skills/longterm-past-schedule/scripts/lt-collect-browser.js",
+      "sha256": "261dacaffb6c9efdd8bf0e8e0142b4c0c892c7fceb710a847e99527991e4fb70",
+      "bytes": 11531
+    },
+    {
+      "path": "candidate/skills/longterm-past-schedule/scripts/lt-schedule-engine.js",
+      "sha256": "d2d489cab178ab43dfaaac40db8f8e11ffeceda4093aec76c460f1ffae88388f",
+      "bytes": 42366
+    },
+    {
+      "path": "checks/catalog.json",
+      "sha256": "a45f93e10d8c222dfe0848efebcdfe314fc756b62e4e05f0455c8e9a12b82b58",
+      "bytes": 4070
+    },
+    {
+      "path": "checks/runtime/active.cjs",
+      "sha256": "c60f97d44ba418373d1ffb7b79b5ee9840a32a59937cd33d2d1cd8e753df8cea",
+      "bytes": 2274
+    },
+    {
+      "path": "checks/runtime/aside-cli.cjs",
+      "sha256": "a45fb7094835db7dbbcd32b91b5884647479e167d5632a36da8ee98f1b696908",
+      "bytes": 5755
+    },
+    {
+      "path": "checks/runtime/browser-guard.cjs",
+      "sha256": "d245c68e2721e688771e614bd9ea5e81a5dd64c54648a9cfaeb03dee21ee40c5",
+      "bytes": 8598
+    },
+    {
+      "path": "checks/runtime/care-records/commands.cjs",
+      "sha256": "d49e595afb3d3f23de8a26727e20d44034ec60d31c5dc4d06a4cc0cb59ebe04f",
+      "bytes": 4159
+    },
+    {
+      "path": "checks/runtime/care-records/compatibility.cjs",
+      "sha256": "8f4095d50b15913b2bcb1747d3c2ee5c085cd6941345f0a896e6c71fc51eae00",
+      "bytes": 1754
+    },
+    {
+      "path": "checks/runtime/care-records/documentation.cjs",
+      "sha256": "bc4dc4e080867f38a006ac285d5cd65903161b1f30379c633aba9a23366381ac",
+      "bytes": 12398
+    },
+    {
+      "path": "checks/runtime/client/lib/nextMonth.js",
+      "sha256": "e259e058a1674db351536483bde5278fc6b363f9dea38426a8796fca3e3ee5c4",
+      "bytes": 6690
+    },
+    {
+      "path": "checks/runtime/client/lib/nextMonthPreparation.js",
+      "sha256": "1049d42146780c575b2e9f77a465afcb0af609a65205d9728ad12e73f2a2c198",
+      "bytes": 12749
+    },
+    {
+      "path": "checks/runtime/client/lib/scheduleReview.js",
+      "sha256": "2b7e49c1d12cb32aaaf64dd0ab6653d67ba95879eafbe7353794e180bc9b47dd",
+      "bytes": 8199
+    },
+    {
+      "path": "checks/runtime/client/lib/scheduleReviewWorkflow.js",
+      "sha256": "d7e90e64144f0a725e78129376c834f062d6793902fd978e33a39671fa4b5849",
+      "bytes": 3066
+    },
+    {
+      "path": "checks/runtime/client/lib/workerNoteReviews.js",
+      "sha256": "0e67fe268e952a442e37a870bbff2b92b2aaedba53f3b734cc082922b35cff31",
+      "bytes": 2136
+    },
+    {
+      "path": "checks/runtime/client/lib/workerNotes.js",
+      "sha256": "29a02a83f71643e9599869ad080b9a8bcf031191f2400b2218b04e188f8360bc",
+      "bytes": 8248
+    },
+    {
+      "path": "checks/runtime/client/lib/workerNotesContent.js",
+      "sha256": "f2a126afa9af803f2b911f4fd5e4400f81bf753b10868f1324f75a03c0f2f254",
+      "bytes": 4236
+    },
+    {
+      "path": "checks/runtime/client/lib/workerNotesLocalSnapshot.js",
+      "sha256": "75a91f10942d1ee650888a10a17b4a8d933c322b80c0de394d76a19ac868c140",
+      "bytes": 4777
+    },
+    {
+      "path": "checks/runtime/client/scripts/export-worker-notes.ps1",
+      "sha256": "e6f32f22429d9880191184fc33fdaf058f9b43bd6242cdfae6d924a5f6139d4e",
+      "bytes": 2208
+    },
+    {
+      "path": "checks/runtime/client/scripts/next-month-desk.js",
+      "sha256": "e5dddea627ffea67a7cc9b0166ea8a99c0d1bb6d953663a49f92af17fb4ff91e",
+      "bytes": 8270
+    },
+    {
+      "path": "checks/runtime/client/scripts/prepare-schedule-review.js",
+      "sha256": "fec9f3269671f16b9531de560e24ca97973bf87f307517f4ea8df6a857bef46e",
+      "bytes": 888
+    },
+    {
+      "path": "checks/runtime/client/scripts/prepare-worker-notes.js",
+      "sha256": "3c413c1b7eff02e831190a6cffce9156bdfc6bbba1cd42a3893227625a46fd27",
+      "bytes": 1446
+    },
+    {
+      "path": "checks/runtime/client/scripts/register-schedule-review.js",
+      "sha256": "cb1639908f2c004e1c3269e9041cef9955e7f5bd7c6ea99796f657be51d30037",
+      "bytes": 6714
+    },
+    {
+      "path": "checks/runtime/client/scripts/register-worker-note-reviews.js",
+      "sha256": "5ed90798667acbb3da5db2b3bda4522e01a2bea919d69b7bc610fff5ac86cf9e",
+      "bytes": 8691
+    },
+    {
+      "path": "checks/runtime/client/scripts/register-worker-notes.js",
+      "sha256": "fc80d84af47af70f19d9c60cac31251fd0ed48136aa4f952b5437cc7ed53fd8d",
+      "bytes": 20703
+    },
+    {
+      "path": "checks/runtime/client/scripts/schedule-review-execution.js",
+      "sha256": "5e897b6e45ef295150fcc138d6bfabc9c35349e91f15423c88d1cba4f9c8ef58",
+      "bytes": 12718
+    },
+    {
+      "path": "checks/runtime/client/scripts/schedule-review-follow-up.js",
+      "sha256": "f4487879b1ad6c6e8e37659a7aa518266cad4e87ed8791974cfb6db5fb2af61c",
+      "bytes": 2242
+    },
+    {
+      "path": "checks/runtime/client-call.cjs",
+      "sha256": "57348e5fa77f8fc2c7459af708771b2dfe1a5b6cd08711bb1b293989d9b6b1b4",
+      "bytes": 5219
+    },
+    {
+      "path": "checks/runtime/configured-aside.cjs",
+      "sha256": "a22977387959946f7fd3485c9c375950856bf2f05753a08e4d988b3e0538d040",
+      "bytes": 252
+    },
+    {
+      "path": "checks/runtime/context.cjs",
+      "sha256": "7f1983fe1eab3a09f4e0b5d6357c9417df9ee75e74f0d40b9b14003274b0e40e",
+      "bytes": 6663
+    },
+    {
+      "path": "checks/runtime/control.cjs",
+      "sha256": "377ffe389bf7e894fbf8781dda7b747fdf423ca4b0a3f1dd700da6dd745c674b",
+      "bytes": 23400
+    },
+    {
+      "path": "checks/runtime/doctor-checks.cjs",
+      "sha256": "53fbaeb74229241c0675780d46aef3d5a2d94b3e9cea353e903ceb755548f9da",
+      "bytes": 6827
+    },
+    {
+      "path": "checks/runtime/doctor-live.cjs",
+      "sha256": "2209e4cc500be3da3a724e22d52ba32fb97a65971770251d2380b8818b272bc8",
+      "bytes": 9337
+    },
+    {
+      "path": "checks/runtime/document-links.cjs",
+      "sha256": "31d7d183b45c8401526c99a1ebfd573a3681215d99f3581c955e414621fabe44",
+      "bytes": 944
+    },
+    {
+      "path": "checks/runtime/environment.cjs",
+      "sha256": "5724161a17ba88f60f3c8415afbecd220f5342feeb00436ef9dd970bc495b405",
+      "bytes": 1337
+    },
+    {
+      "path": "checks/runtime/evaluation/collect.cjs",
+      "sha256": "0e7d83bd5c840cff0bebd58ff88ff929af3455118c37aa11e9d3e62994d7dbd3",
+      "bytes": 2542
+    },
+    {
+      "path": "checks/runtime/evaluation/commands.cjs",
+      "sha256": "bb57aab67520e28ba6e5d714737af30a98940a6a27b251128c01331df281d7dc",
+      "bytes": 59515
+    },
+    {
+      "path": "checks/runtime/evaluation/commands.test.cjs",
+      "sha256": "5f477b836672d616e1d9e4dd05db0c372b3ce6822d3426b0cd57e539a106956c",
+      "bytes": 57792
+    },
+    {
+      "path": "checks/runtime/evaluation/core.cjs",
+      "sha256": "9253329d0ff0fa6011b9433939827cef767b9cb59854411c20d52ab6e47d72a1",
+      "bytes": 12861
+    },
+    {
+      "path": "checks/runtime/evaluation/desk-bridge.cjs",
+      "sha256": "9afe5e9b5d7201edab65b33ac41b832c698747ffa1380314d6a262861b5f027d",
+      "bytes": 13999
+    },
+    {
+      "path": "checks/runtime/evaluation/desk-client.cjs",
+      "sha256": "c7613f32f6c11251db036dc4c70be08a168b6b0500e83bd0d41e298d98852e42",
+      "bytes": 4888
+    },
+    {
+      "path": "checks/runtime/evaluation/desk-publish-run.cjs",
+      "sha256": "991f708ec41a13a57068c30a53102674c173e0dbc011c7ce4e7b75c61d47a87c",
+      "bytes": 3652
+    },
+    {
+      "path": "checks/runtime/evaluation/desk-publish.cjs",
+      "sha256": "5567e7d79e6a33f6de03c77dbd2964a8bdc2ca7d403688214b4c0eea2be4fd54",
+      "bytes": 3092
+    },
+    {
+      "path": "checks/runtime/evaluation/desk-register.cjs",
+      "sha256": "0ffebb6ba075097ea00738dc6d39f81fe23d4ae09730b9bb89147ce69614e09d",
+      "bytes": 18419
+    },
+    {
+      "path": "checks/runtime/evaluation/desk-transport.cjs",
+      "sha256": "c369ddf4c348a5c56be71c84f1577c713be5b46cf6f45b50a4cdfe2168572ad2",
+      "bytes": 2843
+    },
+    {
+      "path": "checks/runtime/evaluation/document.py",
+      "sha256": "3413d22088f9cb37c352433f3d30974b49bfc7925177b53766ee89d32b8a4b6c",
+      "bytes": 5771
+    },
+    {
+      "path": "checks/runtime/evaluation/evidence-source.cjs",
+      "sha256": "9285d96e313cbda0a983b31250012d814c9d0aeb5c12a7c89dbdaa08e5970130",
+      "bytes": 3002
+    },
+    {
+      "path": "checks/runtime/evaluation/evidence.test.cjs",
+      "sha256": "314e4969f5c85457e3fc7f3bb03602316207fd712f58680bde3764df75f16dd2",
+      "bytes": 50324
+    },
+    {
+      "path": "checks/runtime/evaluation/journal.cjs",
+      "sha256": "1df6d6b895e0b4baf478c014b8a56e5a324c57d474c540576c8290074decf577",
+      "bytes": 2577
+    },
+    {
+      "path": "checks/runtime/evaluation/local-notes-prior.cjs",
+      "sha256": "ab69f9054710179bb3177b90bae1d37c0356ac135e18e906bc28d05d83692ce9",
+      "bytes": 2099
+    },
+    {
+      "path": "checks/runtime/evaluation/local-notes-prior.test.cjs",
+      "sha256": "b4db69a5b61742f1b0979dbcb03aa9e55ee3ded23a717b30f955c2d65923fc48",
+      "bytes": 2683
+    },
+    {
+      "path": "checks/runtime/evaluation/lt-evidence-page.cjs",
+      "sha256": "c94e7f0806f14e59754db297dbc680f6f0dcb252264e0be41e5e7d5733eda48e",
+      "bytes": 14680
+    },
+    {
+      "path": "checks/runtime/evaluation/lt-rfid-evidence-page.cjs",
+      "sha256": "d4926e46697bc01f70945b3556dd113ee038ef922cf1dfb5ad7da94abeaeb690",
+      "bytes": 13865
+    },
+    {
+      "path": "checks/runtime/evaluation/native-adapter.cjs",
+      "sha256": "a5fbff5f331dcf9d7862bd7e403ff13c1bf069aef14b2f5be62eae4c17dda7f0",
+      "bytes": 6020
+    },
+    {
+      "path": "checks/runtime/evaluation/native-evidence-adapter.cjs",
+      "sha256": "25fcac4a65fabc8ded4c3fe8b4bbe4f09ef88e47f289cceaa9c7d8ab7999ccd5",
+      "bytes": 10990
+    },
+    {
+      "path": "checks/runtime/evaluation/native-open.cjs",
+      "sha256": "efb4bc3b6a0ac58354810fa8570551023aa38af8fcb5a545b94db7614b57a03f",
+      "bytes": 8890
+    },
+    {
+      "path": "checks/runtime/evaluation/native-page.cjs",
+      "sha256": "b7973a1d4891d066408d8bbeae13f948300090f809d0f818a46d26e2f341f127",
+      "bytes": 14986
+    },
+    {
+      "path": "checks/runtime/evaluation/prepare.cjs",
+      "sha256": "41c2a83402dee775be0a59091d60fa5d1dca7aa1bd0a86004f8199d84be6c0fb",
+      "bytes": 1547
+    },
+    {
+      "path": "checks/runtime/evaluation/reconcile.cjs",
+      "sha256": "8150dc30978e67f65162b9e2ccf4fed733bc3e4c3a3e4fc336f05ff98a6aeb00",
+      "bytes": 2122
+    },
+    {
+      "path": "checks/runtime/evaluation/recovery-guard.cjs",
+      "sha256": "7d252b3bfc13a01fa39336a6ec9d9d66eafa8482d71c682d1925c541b6ffed23",
+      "bytes": 4212
+    },
+    {
+      "path": "checks/runtime/evaluation/runner.cjs",
+      "sha256": "d981c47947c0fa44e62297e4ff9a6333d093b851261bf2f0b60f4ebbc496eb57",
+      "bytes": 4032
+    },
+    {
+      "path": "checks/runtime/evaluation/sequence.cjs",
+      "sha256": "718861821c2924ce449b3285347bb509138e38177c8e94200c4633d823ba8413",
+      "bytes": 3122
+    },
+    {
+      "path": "checks/runtime/evaluation/worker-notes-provider.test.cjs",
+      "sha256": "dea304b43a5dd75a44e0d104fd2e4e614701829d272d2573f37f579d05de77c6",
+      "bytes": 7597
+    },
+    {
+      "path": "checks/runtime/installer.cjs",
+      "sha256": "0faaf6c001f9157abb1bdc8ea60162ef90814b2197908eb201fcf839feedcae7",
+      "bytes": 1846
+    },
+    {
+      "path": "checks/runtime/invoke.ps1",
+      "sha256": "424569a0fa484ce2802533cac73ea5afe9254b3276ccd4b6b4f463e7cbcf4238",
+      "bytes": 1682
+    },
+    {
+      "path": "checks/runtime/legacy-run.ps1",
+      "sha256": "df76605c46f435c1c10789482148d737b11eeab1f3e86b7d5f991dae2bc3931b",
+      "bytes": 1501
+    },
+    {
+      "path": "checks/runtime/legacy-runner.cjs",
+      "sha256": "850e7479a962ea73ca57575b9200bc123edd1f25dc47ba72924e79e7b56a4e87",
+      "bytes": 3646
+    },
+    {
+      "path": "checks/runtime/monthly-four-diary.cjs",
+      "sha256": "fe9498b61ab93c96a304a3056a6b916d80def388e4c46c9a46bafd6de722404b",
+      "bytes": 13269
+    },
+    {
+      "path": "checks/runtime/monthly-four-runner.cjs",
+      "sha256": "27c3e41515e32e7f122465e0cff158c925a362ae4ade32738f7a0de2bd38bfe2",
+      "bytes": 13138
+    },
+    {
+      "path": "checks/runtime/monthly-four-state.cjs",
+      "sha256": "279b513bac5ec44d3d6cfc285ccc4e2514295d15eead28bc0536b2a3093f7201",
+      "bytes": 14045
+    },
+    {
+      "path": "checks/runtime/monthly-four-status.cjs",
+      "sha256": "024e5c4c0f389228624724d950e1dd5ec95ea57838cfdbc87780841cff678d92",
+      "bytes": 7755
+    },
+    {
+      "path": "checks/runtime/monthly-four-targets.cjs",
+      "sha256": "c15035e69e2d7ae3108a9af21773f38ddfb9b9474b50ee6aedda9cefbd8ec3f1",
+      "bytes": 6581
+    },
+    {
+      "path": "checks/runtime/package-manager.cjs",
+      "sha256": "50b8f8d567158533b2dbf02cb5b9fceede756fbd6dafe4e7f18bac72766f3b3e",
+      "bytes": 27200
+    },
+    {
+      "path": "checks/runtime/plan-source-four.cjs",
+      "sha256": "54c0bde618ff4865e334f7fc06744cacc6ce4564cc6824836e1ea7c0964a8ce4",
+      "bytes": 14990
+    },
+    {
+      "path": "checks/runtime/plan-source-store.cjs",
+      "sha256": "e750d80d5f758fec12237fcfcdbc884a181805fa7cf06b00cb04be979af586a8",
+      "bytes": 11327
+    },
+    {
+      "path": "checks/runtime/prepared-call.cjs",
+      "sha256": "a75604b6a984db5b2a849266820f2c192bfe684c20e393c04589f8d6d3dfd755",
+      "bytes": 3780
+    },
+    {
+      "path": "checks/runtime/process-env.cjs",
+      "sha256": "4c69d14198da33cb61eb40149194185eb9cbf1198a69fc083674cf71e24e097f",
+      "bytes": 408
+    },
+    {
+      "path": "checks/runtime/public-update.cjs",
+      "sha256": "6a8ab4831847296002fa5ca4101970f5f0377371820a43d9539363b7f6ee92af",
+      "bytes": 17413
+    },
+    {
+      "path": "checks/runtime/repl.cjs",
+      "sha256": "90cfd4e88c01838176776fe9a4122ac3c6124570734cf310f8eaa27d9d811772",
+      "bytes": 1732
+    },
+    {
+      "path": "checks/runtime/schedule-preflight.cjs",
+      "sha256": "391e3b1d417f822689fc54f78c27740b84c3a2358681e1cad75cc3188c7b7bbd",
+      "bytes": 1188
+    },
+    {
+      "path": "checks/runtime/stage-check.cjs",
+      "sha256": "50e4eff4d98e6e35e7672ea72c669700d50f7ea264e11ad5042cdf31efd6d9dc",
+      "bytes": 4800
+    },
+    {
+      "path": "checks/runtime/update-download.cjs",
+      "sha256": "0c1558fcbc720335bf65fa4fca8db66ed89216f7db386c74b40605e48612c494",
+      "bytes": 4532
+    },
+    {
+      "path": "checks/runtime/update-trust.cjs",
+      "sha256": "f9beea52c07f29e8085d9d88c12b722f3378335325227df0f82d56fb5e1a224a",
+      "bytes": 9172
+    },
+    {
+      "path": "checks/runtime/worker-notes-four.cjs",
+      "sha256": "8b9a348dc8f4d2eab35c5853d9b8c9e183f5ed7390d3e8b2e9c1d9dbd4c641a6",
+      "bytes": 9152
+    },
+    {
+      "path": "checks/runtime/worker-notes-lock.cjs",
+      "sha256": "a06015136eb23ec74e676103054a8f418aabaf38865a28b9e7e52702fea8e9f2",
+      "bytes": 7563
+    },
+    {
+      "path": "checks/runtime/worker-notes-store.cjs",
+      "sha256": "dba8e53662e94fa866b3ae4a5e9af81e803c54c833eca08d4a7533c4b0e7296a",
+      "bytes": 22564
+    },
+    {
+      "path": "checks/runtime/workspace-bootstrap.cjs",
+      "sha256": "e98e4dd84710ad848a8f3b628f2eaa07527d03fded758d8968fb6ae7a0429408",
+      "bytes": 765
+    },
+    {
+      "path": "HANDOFF-CLAUDE-CODE-2026-11-28.txt",
+      "sha256": "f19f1a15a777f5a309430b23a6cc489903fc97259eb06439f6b18b7baa95476c",
+      "bytes": 3927
+    },
+    {
+      "path": "HANDOFF-CODEX-2026-11-28.txt",
+      "sha256": "07b328215769392cb3cb9c2465dc6a487647de7bfb968dfc842d822cc98eb345",
+      "bytes": 3852
+    },
+    {
+      "path": "other-candidates/lt-timeout-dialog-20261128/timeout-dialog.cjs",
+      "sha256": "c666a56673fa479eda9f5d91bb98f512b5b344b76afc0aa42e7aa01bc36f9284",
+      "bytes": 541
+    },
+    {
+      "path": "other-candidates/lt-timeout-dialog-20261128/timeout-dialog.test.cjs",
+      "sha256": "addb05e82e66665a65ac4feda45b1474295d9ccf9e53b04d323ac6bae2c9c78d",
+      "bytes": 1238
+    },
+    {
+      "path": "other-candidates/unsaved-isolation-20261128/decision.cjs",
+      "sha256": "bb7a244eef8f49c05b006b6a584984f8c2309cabbd103e92cfd9b83323a8cec4",
+      "bytes": 790
+    },
+    {
+      "path": "other-candidates/unsaved-isolation-20261128/decision.test.cjs",
+      "sha256": "b86e02879b4a3ea233df57e289e611403683bba9d54ed39623efad9681b5b594",
+      "bytes": 1245
+    },
+    {
+      "path": "README.txt",
+      "sha256": "8ca65b8d26e8469c8cfafc3a24541e14fd75de689f471ca9ac1150f81f5c7cd4",
+      "bytes": 4126
+    }
+  ]
+}

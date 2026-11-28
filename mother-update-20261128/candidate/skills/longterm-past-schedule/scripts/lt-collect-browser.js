@@ -1,0 +1,56 @@
+var LTCollectBrowser = async function(p) {
+ const app=nexacro.getApplication(),u=app.gds_userInfo;
+ if(String(u.getColumn(0,'USER_TYPE'))!=='20A')throw Error('기관 로그인 필요');
+ const fw=app.mainframe.VFrameSet.HFrameSet.VFrameSetSub.framesetWork;let f;
+ for(const k in fw){try{if(/^win/.test(k)&&fw[k].npia107p01)f=fw[k].npia107p01.form._div_bizFrameMain.form;}catch{}}
+ if(!f)throw Error('급여제공일 창 필요');let dm=f.div_main.form;
+ const readOnlyCognitiveSequence=(ds,i,cols)=>{
+  if(ds!==dm.ds_apprvCtrDtl||String(f.fv_sLtcRcgtGradeCd)!=='5'||cols.length!==1||cols[0]!=='AC_SEQ_NO')return false;
+  if(String(ds.getColumn(i,'AC_SEQ_NO'))!=='0'||!/^\d+$/.test(String(ds.getOrgColumn(i,'AC_SEQ_NO'))))return false;
+  if(String(ds.getColumn(i,'AC_YN'))!=='N'||String(ds.getOrgColumn(i,'AC_YN'))!=='N')return false;
+  const native=String(dm.bfn_i_setAcYnForPct||''),callback=String(dm.fn_postSelectPaymtContnNtctBasicInfo||'');
+  return /this\.ds_apprvCtrDtl\.setColumn\(\s*i\s*,\s*['"]AC_SEQ_NO['"]\s*,\s*0\s*\)/.test(native)&&/this\.ds_apprvCtrDtl\.setColumn\(\s*i\s*,\s*['"]AC_YN['"]\s*,\s*['"]N['"]\s*\)/.test(native)&&callback.includes('this.bfn_i_setAcYnForPct()');
+ };
+ const dirty=()=>{let n=0;for(const ds of [dm.ds_apprvCtrDtl,dm.ds_paymtDypr]){if(!ds)throw Error('일정 데이터셋 필요');n+=ds.getDeletedRowCount();for(let i=0;i<ds.getRowCount();i++){const type=ds.getRowType(i);if(type===2||type===8)n++;if(type===4){const cols=Array.from({length:ds.getColCount()},(_,j)=>ds.getColID(j)).filter(c=>String(ds.getColumn(i,c))!==String(ds.getOrgColumn(i,c)));if(ds===dm.ds_apprvCtrDtl?!readOnlyCognitiveSequence(ds,i,cols):!cols.length||cols.some(c=>!['CHE_AGE','AC_SEQ_NO','TOT_CNT'].includes(c)&&!(c==='AC_YN'&&String(ds.getOrgColumn(i,c))==='N'&&String(ds.getColumn(i,c))==='Y')))n++;}}}return n||String(f.fv_paymtChgYn)==='Y'||String(dm.fv_paymtChgYn)==='Y';};
+ if(dirty())throw Error('미저장 변경 보존: 수집 중단');
+ if(!/^\d{6}$/.test(p.ym))throw Error('월 형식 오류');if(window.__ltJobBusy||window.__ltCollectionBusy||window.__ltTagReadBusy)throw Error('LT 작업 실행 중');
+ const sourceId=String(u.getColumn(0,'LTC_ADMIN_SYM')||u.getColumn(0,'ADMIN_SYM')||'');
+ if(!sourceId||String(f.fv_sLtcAdminSym)!==sourceId)throw Error('기관 원천 불일치');
+ const org={name:String(u.getColumn(0,'USER_NM')),code:'20A',sourceId};
+ const X=window.XMLHttpRequest,op=X.prototype.open,sd=X.prototype.send;let pending=0,blocked=0,requests=0;
+ X.prototype.open=function(m,url){this.__ltCollectUrl=String(url);return op.apply(this,arguments);};
+ X.prototype.send=function(body){if(/save|cncl|delete|remove|insert|update/i.test(String(this.__ltCollectUrl).split('?')[0])){blocked++;throw Error('WRITE_BLOCKED');}requests++;pending++;this.addEventListener('loadend',()=>pending--,{once:true});return sd.apply(this,arguments);};
+ const pause=ms=>new Promise(r=>setTimeout(r,ms));const started=Date.now();
+ const select=async(ctr,ym)=>{f.cmb_obj.set_value(ctr);f.fv_sLtcpOffrYyyymm=ym;f.fn_setChangObjInfo(ctr);let quiet=0;for(let n=0;n<150;n++){await pause(100);if(!pending&&String(f.ds_objtr.getColumn(0,'LTCP_CTR_NO'))===ctr&&String(f.cmb_ctrYm.value)===ym)quiet++;else quiet=0;if(quiet>=8){dm=f.div_main.form;return;}}throw Error('CONTRACT_TIMEOUT');};
+ const readPlans=()=>{const out=[],ds=dm.ds_paymtDypr,ym=String(f.cmb_ctrYm.value);for(let i=0;i<ds.getRowCount();i++)for(let day=1;day<=31;day++)if(String(ds.getColumn(i,'DT'+day))==='1')out.push({date:ym.slice(0,4)+'-'+ym.slice(4)+'-'+String(day).padStart(2,'0'),cg:String(ds.getColumn(i,'CHE_NM')),workerId:String(ds.getColumn(i,'CHE_HIPIN')||''),fr:String(ds.getColumn(i,'LTCP_OFFR_FR_TM')),to:String(ds.getColumn(i,'LTCP_OFFR_TO_TM')),fam:String(ds.getColumn(i,'FMLY_YN')),pgm:['1','Y'].includes(String(ds.getColumn(i,'PGM_MNGR_YN'))),managerId:String(ds.getColumn(i,'PGM_MNGR_HIPIN')||''),managerName:String(ds.getColumn(i,'PGM_MNGR_NM')||''),dmd:String(ds.getColumn(i,'DT'+day+'_DMD_STATE'))==='Y'});return out.sort((a,b)=>JSON.stringify(a).localeCompare(JSON.stringify(b)));};
+ const original={ctr:String(f.fv_sLtcpCtrNo),ym:String(f.cmb_ctrYm.value),plans:readPlans()};let result,catalogXML=null;
+ const evidenceRows=(ds,columns)=>{if(!ds)return [];const out=[];for(let i=0;i<ds.getRowCount();i++)out.push(Object.fromEntries(columns.map(k=>[k,ds.getColumn(i,k)??null])));return out;};
+ const readMonthlyContext=()=>{
+  if(typeof dm.bfn_i_setMmDtlDesc!=='function'||typeof f.ds_limitAmt?.getColCount!=='function')return null;
+  const nativeSource=String(dm.bfn_i_setMmDtlDesc),keys=[...new Set([...Array.from(nativeSource.matchAll(/(?:this|pThis)\.(fv_[a-zA-Z0-9_]+)/g),m=>m[1]),'fv_sDmtiaDecsYn'])];
+  const values=o=>Object.fromEntries(keys.filter(k=>['string','number','boolean'].includes(typeof o[k])||o[k]===null).map(k=>[k,o[k]]));
+  return {orgSourceId:sourceId,certNo:String(f.ds_objtr.getColumn(0,'LTC_MGMT_NO')),ctr:String(f.fv_sLtcpCtrNo),month:p.ym,nativeSource,policySource:String(dm.fn_chkPaymtDypr||''),ageSource:String(dm.bfn_i_setEggrAge||''),formName:f.name,formValues:values(f),detailValues:values(dm),limits:evidenceRows(f.ds_limitAmt,Array.from({length:f.ds_limitAmt.getColCount()},(_,i)=>f.ds_limitAmt.getColID(i))),cancellation:evidenceRows(dm.ds_paymtCncl,Array.from({length:31},(_,i)=>'QLF'+(i+1)))};
+ };
+ const readEvidence=()=>({monthlyContext:readMonthlyContext(),month:p.ym.slice(0,4)+'-'+p.ym.slice(4),limit:{initialLimit:f.ds_limitAmt.getColumn(0,'INIT_LIMIT_AMT')??null,otherExcluded:f.ds_limitAmt.getColumn(0,'OTHER_MM_EXCEP_AMT')??null,limit:f.ds_limitAmt.getColumn(0,'MM_LMT_AMT')??null,total:f.ds_limitAmt.getColumn(0,'MM_TOT_AMT')??null,other:f.ds_limitAmt.getColumn(0,'OTHOR_MM_AMT')??null,own:f.ds_limitAmt.getColumn(0,'TOT_AMT')??null,excluded:f.ds_limitAmt.getColumn(0,'MM_EXCEP_AMT')??null,ended:f.ds_limitAmt.getColumn(0,'CTR_END_YN')??null},nisQualification:evidenceRows(f.ds_nisQlf,['QLF_YN','CHWIDUK_DT','SANGSIL_DT']),holidays:evidenceRows(f.ds_holiInfo,['DT','HOLDT_YN','HOLDT_YN2','WEEK_NO']),employees:evidenceRows(f.ds_eggr,['HIPIN','FNM','QLF_KIND','EDU_CPET_YN','ADD_YN','WKG_FR_DT','WKG_TO_DT']),dailyPrices:evidenceRows(dm.ds_ddMech,['LTCP_OFFR_DT','LTCP_MECH_CD','LTCP_OFFR_TMN','UTIL_AMT','LTC_NGT_OFFR_TMN','LTC_NIGHT_OFFR_TMN','LTC_SD_OFFR_TMN','LTC_OD_OFFR_TMN']),pricingInputs:evidenceRows(dm.ds_apprvCtrDtl,['LTCP_CTR_NO','LTCP_OFFR_DT','LTCP_OFFR_SEQ_NO','LTCP_OFFR_FR_TM','LTCP_OFFR_TO_TM','LTCP_OFFR_TMN','LTCP_OFFR_TMN_TOT','AC_YN','AC_SEQ_NO','FHO_UTIL_YN','VMC_24HR_TYPE_CD','TSMT_OFFR_YN','HLT_MGMT_SVC_UTIL_YN','PCT_ACTION_YN','CNCL_YN','CHE_HIPIN','CHE_NM','QLF_NO','CHE_QLF_KIND_CD','NWR_CHE_YN','PGM_MNGR_YN','FMLY_YN','FMLY_REL_CD','NWR_YN','HOLDT_YN','MECH_90MIN_PSBLYN','HOLDT_YN2']),condition:f.ds_cond&&typeof f.ds_cond.getColCount==='function'?evidenceRows(f.ds_cond,Array.from({length:f.ds_cond.getColCount()},(_,i)=>f.ds_cond.getColID(i))):[]});
+ window.__ltCollectionBusy=true;
+ try{
+  if(p.phase==='catalog'){
+   if(!String(f.fn_selectObjtrList).includes('/i/a/107/selectObjtrList.do'))throw Error('계약목록 조회 경로 변경');
+   const inputName='ltOnlyCollectIn',outputName='ltOnlyCollectOut',callbackName='fn_ltOnlyCollectCallback';
+   if(f[inputName]||f[outputName]||f[callbackName])throw Error('계약목록 조회 중');
+   const a=new nexacro.Dataset(inputName,f),b=new nexacro.Dataset(outputName,f);f.addChild(inputName,a);f.addChild(outputName,b);a.addColumn('LTC_ADMIN_SYM','STRING');a.addColumn('LTCP_OFFR_YYYYMM','STRING');a.addRow();a.setColumn(0,'LTC_ADMIN_SYM',sourceId);a.setColumn(0,'LTCP_OFFR_YYYYMM',p.ym);
+   try{await new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(Error('계약목록 조회 시간초과')),20000);f[callbackName]=function(_id,code,message){clearTimeout(timer);Number(code)<0?reject(Error('계약목록 조회 실패: '+message)):resolve();};try{f.gfn_callService('ltOnlyCollectCatalog','/i/a/107/selectObjtrList.do','ds_cond='+inputName,outputName+'=ds_result','',[],callbackName);}catch(e){clearTimeout(timer);reject(e);}});
+    const contracts=[];for(let i=0;i<b.getRowCount();i++)contracts.push({ctr:String(b.getColumn(i,'LTCP_CTR_NO')),recipientId:String(b.getColumn(i,'OBJTR_HIPIN')||''),prs:String(b.getColumn(i,'OBJTR')).split('(')[0],birth:((String(b.getColumn(i,'OBJTR')).match(/\(([^)]*)\)/)||[])[1]||'').replace(/\D/g,'').slice(0,8),clsfc:String(b.getColumn(i,'LTCP_CLSFC_CD')),grade:String(b.getColumn(i,'LTC_RCGT_GRADE_CD')),from:String(b.getColumn(i,'CTR_FR_DT')),to:String(b.getColumn(i,'CTR_TO_DT'))});
+    result={ok:true,org,contracts,catalogComplete:(!b.getRowCountNF||b.getRowCountNF()===contracts.length)&&!b.filterstr,catalogProof:{path:'/i/a/107/selectObjtrList.do',filters:['LTC_ADMIN_SYM','LTCP_OFFR_YYYYMM'],month:p.ym,count:contracts.length}};
+   }finally{delete f[callbackName];for(const name of [inputName,outputName]){const child=f.removeChild(name);if(child?.destroy)child.destroy();}}
+  }else{
+   const ctrs=String(p.ctrs||'').split(',').filter(Boolean);if(!ctrs.length||ctrs.length>10)throw Error('계약 배치 1~10건 필요');const reads=[];
+   const extra=p.contracts?JSON.parse(p.contracts):[];
+   if(extra.some(c=>f.ds_objList.findRow('LTCP_CTR_NO',String(c.ctr))<0)){catalogXML=f.ds_objList.saveXML();f.ds_objList.set_enableevent(false);try{for(const c of extra){if(f.ds_objList.findRow('LTCP_CTR_NO',String(c.ctr))>=0)continue;const i=f.ds_objList.addRow();for(const [k,v] of Object.entries({LTCP_CTR_NO:c.ctr,OBJTR:c.prs,OBJTR_HIPIN:c.recipientId||'',LTCP_CLSFC_CD:c.clsfc,LTC_RCGT_GRADE_CD:c.grade,CTR_FR_DT:String(c.from).replace(/-/g,''),CTR_TO_DT:String(c.to).replace(/-/g,'')}))f.ds_objList.setColumn(i,k,v);}}finally{f.ds_objList.set_enableevent(true);}}
+   for(const ctr of ctrs){await select(ctr,p.ym);if(dirty())throw Error('미저장 변경 발생');const record={ok:true,ctr,mg:String(f.ds_objtr.getColumn(0,'LTC_MGMT_NO')),prs:String(f.ds_objtr.getColumn(0,'FNM')),grade:String(f.ds_objtr.getColumn(0,'LTC_RCGT_GRADE_CD')),limits:{limit:String(f.ds_limitAmt.getColumn(0,'MM_LMT_AMT')),total:String(f.ds_limitAmt.getColumn(0,'MM_TOT_AMT'))},plans:readPlans()};if(p.details==='1'){record.details=[];const ds=dm.ds_apprvCtrDtl;for(let i=0;i<ds.getRowCount();i++){if(String(ds.getColumn(i,'CNCL_YN'))==='Y')continue;record.details.push({date:String(ds.getColumn(i,'LTCP_OFFR_DT')),name:String(ds.getColumn(i,'CHE_NM')),id:String(ds.getColumn(i,'CHE_HIPIN')),manager:['1','Y'].includes(String(ds.getColumn(i,'PGM_MNGR_YN')))?'Y':'N',fr:String(ds.getColumn(i,'LTCP_OFFR_FR_TM')),to:String(ds.getColumn(i,'LTCP_OFFR_TO_TM')),ctr:String(ds.getColumn(i,'LTCP_CTR_NO'))});}}if(p.evidence==='1')record.evidence=readEvidence();reads.push(record);}
+   result={ok:true,org,reads};
+  }
+ }finally{try{if(catalogXML){f.ds_objList.set_enableevent(false);try{f.ds_objList.loadXML(catalogXML);}finally{f.ds_objList.set_enableevent(true);}}if(String(f.fv_sLtcpCtrNo)!==original.ctr||String(f.cmb_ctrYm.value)!==original.ym){if(dirty())throw Error('복원 전 미저장 변경');await select(original.ctr,original.ym);}if(JSON.stringify(readPlans())!==JSON.stringify(original.plans))throw Error('수집 전후 전체 일정 불일치');}finally{X.prototype.open=op;X.prototype.send=sd;window.__ltCollectionBusy=false;}}
+ return {...result,uiRestored:true,writes:0,blockedWrites:blocked,readRequests:requests,elapsedMs:Date.now()-started,capturedAt:new Date().toISOString()};
+};
+if(typeof module!=='undefined')module.exports=LTCollectBrowser;
